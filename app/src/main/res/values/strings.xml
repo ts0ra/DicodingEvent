@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Dicoding Event</string>
+    <string name="event_title">Event Title</string>
+    <string name="title_activity_main">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_upcoming">Upcoming</string>
+    <string name="title_finished">Finished</string>
+    <string name="searchbar_hint">Find event</string>
+    <string name="detail_description">-</string>
+    <string name="detail_category">Category: %1$s</string>
+    <string name="detail_remaining_quota">Remaining Quota: %1$s</string>
+    <string name="detail_event_time">Event Time: %1$s</string>
+    <string name="img_detail_description">Image that used to display event banner</string>
+    <string name="detail_title">Event Title</string>
+    <string name="detail_by">by</string>
+    <string name="detail_owner">Owner name</string>
+    <string name="detail_information">Information</string>
+    <string name="detail_title_description">Description</string>
+    <string name="detail_btn_text">Register</string>
+    <string name="carousel_banner_description">Event banner image for carousel in home</string>
+    <string name="home_upcoming_event">Upcoming Events</string>
+    <string name="home_finished_event">Finished Events</string>
+</resources>
