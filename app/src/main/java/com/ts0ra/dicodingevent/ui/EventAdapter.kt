@@ -23,25 +23,6 @@ class EventAdapter(private val viewType: Int) : ListAdapter<ListEventsItem, Recy
         this.onItemClickCallback = callback
     }
 
-    companion object {
-        const val EVENT_ID = "event_id"
-
-        const val HOME_UPCOMING_EVENT_VIEW_TYPE = 0
-        const val HOME_FINISHED_EVENT_VIEW_TYPE = 1
-        const val UPCOMING_EVENT_VIEW_TYPE = 2
-        const val FINISHED_EVENT_VIEW_TYPE = 3
-
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListEventsItem>() {
-            override fun areItemsTheSame(oldItem: ListEventsItem, newItem: ListEventsItem): Boolean {
-                return oldItem == newItem
-            }
-
-            override fun areContentsTheSame(oldItem: ListEventsItem, newItem: ListEventsItem): Boolean {
-                return oldItem == newItem
-            }
-        }
-    }
-
     override fun getItemViewType(position: Int): Int {
         return when (viewType) {
             0 -> HOME_UPCOMING_EVENT_VIEW_TYPE
@@ -131,6 +112,25 @@ class EventAdapter(private val viewType: Int) : ListAdapter<ListEventsItem, Recy
             binding.tvItemTitle.maxLines = 3
             binding.tvItemTitle.ellipsize = android.text.TextUtils.TruncateAt.END
             Glide.with(binding.root.context).load(event.imageLogo).into(binding.imgItemBanner)
+        }
+    }
+
+    companion object {
+        const val EVENT_ID = "event_id"
+
+        const val HOME_UPCOMING_EVENT_VIEW_TYPE = 0
+        const val HOME_FINISHED_EVENT_VIEW_TYPE = 1
+        const val UPCOMING_EVENT_VIEW_TYPE = 2
+        const val FINISHED_EVENT_VIEW_TYPE = 3
+
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListEventsItem>() {
+            override fun areItemsTheSame(oldItem: ListEventsItem, newItem: ListEventsItem): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: ListEventsItem, newItem: ListEventsItem): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 }

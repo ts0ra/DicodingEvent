@@ -4,4 +4,10 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+
+    <style name="MyCustomToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <!-- Navigation icon tint for light mode -->
+        <item name="navigationIconTint">@color/white</item> <!-- Set your desired color -->
+    </style>
 </resources>

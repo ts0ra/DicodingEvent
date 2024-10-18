@@ -43,6 +43,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="170dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/button_description"
+                app:layout_constraintEnd_toEndOf="@+id/img_detail_media_cover"
+                app:layout_constraintTop_toTopOf="@+id/img_detail_media_cover"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/ic_fav" />
+
             <TextView
                 android:id="@+id/tv_detail_name"
                 android:layout_width="300dp"

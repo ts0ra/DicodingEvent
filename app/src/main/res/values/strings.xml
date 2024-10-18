@@ -20,4 +20,9 @@
     <string name="carousel_banner_description">Event banner image for carousel in home</string>
     <string name="home_upcoming_event">Upcoming Events</string>
     <string name="home_finished_event">Finished Events</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_setting">Setting</string>
+    <string name="button_description">Used for favorite an event</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.ts0ra.dicodingevent.ui.detail
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,12 +8,14 @@ import androidx.lifecycle.ViewModel
 import com.ts0ra.dicodingevent.data.reponse.Event
 import com.ts0ra.dicodingevent.data.reponse.EventObject
 import com.ts0ra.dicodingevent.data.retrofit.ApiConfig
+import com.ts0ra.dicodingevent.database.FavoriteEvent
+import com.ts0ra.dicodingevent.repository.EventRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel(application: Application) : ViewModel() {
     private val _event = MutableLiveData<Event>()
     val event: LiveData<Event> = _event
     private val _isLoading = MutableLiveData<Boolean>()
@@ -21,8 +24,16 @@ class DetailViewModel : ViewModel() {
     private val _errorMessage = MutableLiveData<String?>()
     val errorMessage: LiveData<String?> = _errorMessage
 
-    companion object{
-        private const val TAG = "DetailViewModel"
+    private val mEventRepository: EventRepository = EventRepository(application)
+
+    fun insert(event: FavoriteEvent) {
+        mEventRepository.insert(event)
+    }
+
+    fun getFavoriteEventById(id: Int): LiveData<FavoriteEvent> = mEventRepository.getFavoriteEventById(id)
+
+    fun delete(event: FavoriteEvent) {
+        mEventRepository.delete(event)
     }
 
     fun clearErrorMessage() {
@@ -42,6 +53,7 @@ class DetailViewModel : ViewModel() {
                     }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
+                    _errorMessage.value = "Network error: ${response.message()}"
                 }
             }
 
@@ -51,5 +63,9 @@ class DetailViewModel : ViewModel() {
                 _errorMessage.value = "Network error: ${t.message}"
             }
         })
+    }
+
+    companion object{
+        private const val TAG = "DetailViewModel"
     }
 }

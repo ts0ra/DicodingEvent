@@ -20,10 +20,6 @@ class UpcomingViewModel : ViewModel() {
     private val _errorMessage = MutableLiveData<String?>()
     val errorMessage: LiveData<String?> = _errorMessage
 
-    companion object{
-        private const val TAG = "UpcomingViewModel"
-    }
-
     init {
         findEvents()
     }
@@ -44,6 +40,7 @@ class UpcomingViewModel : ViewModel() {
                     }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
+                    _errorMessage.value = "Network error: ${response.message()}"
                 }
             }
             override fun onFailure(call: Call<EventResponse>, t: Throwable) {
@@ -56,5 +53,9 @@ class UpcomingViewModel : ViewModel() {
 
     fun clearErrorMessage() {
         _errorMessage.value = null
+    }
+
+    companion object{
+        private const val TAG = "UpcomingViewModel"
     }
 }

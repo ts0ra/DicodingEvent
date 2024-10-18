@@ -27,12 +27,6 @@ class HomeViewModel : ViewModel() {
     private val _errorMessage = MutableLiveData<String?>()
     val errorMessage: LiveData<String?> = _errorMessage
 
-    companion object{
-        private const val HOME_VIEW_MODEL_UPCOMING = "HomeViewModelUpcoming"
-        private const val HOME_VIEW_MODEL_FINISHED = "HomeViewModelFinished"
-        private const val HOME_VIEW_MODEL_SEARCH = "HomeViewModelSearch"
-    }
-
     init {
         findUpcomingEvents()
         findFinishedEvents()
@@ -120,6 +114,7 @@ class HomeViewModel : ViewModel() {
                     }
                 } else {
                     Log.e(HOME_VIEW_MODEL_FINISHED, "onFailure: ${response.message()}")
+                    _errorMessage.value = "Network error: ${response.message()}"
                 }
             }
             override fun onFailure(call: Call<EventResponse>, t: Throwable) {
@@ -128,5 +123,11 @@ class HomeViewModel : ViewModel() {
                 _errorMessage.value = "Network error: ${t.message}"
             }
         })
+    }
+
+    companion object{
+        private const val HOME_VIEW_MODEL_UPCOMING = "HomeViewModelUpcoming"
+        private const val HOME_VIEW_MODEL_FINISHED = "HomeViewModelFinished"
+        private const val HOME_VIEW_MODEL_SEARCH = "HomeViewModelSearch"
     }
 }
