@@ -25,4 +25,8 @@
     <string name="title_favorite">Favorite</string>
     <string name="title_setting">Setting</string>
     <string name="button_description">Used for favorite an event</string>
+    <string name="tv_upcoming_info">There is no Upcoming Event</string>
+    <string name="tv_finished_info">There is no Finished Event</string>
+    <string name="tv_favorite_info">There is no Favorite Event</string>
+    <string name="tv_info_detail">Detail unavailable</string>
 </resources>

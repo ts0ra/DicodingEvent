@@ -42,11 +42,13 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.preference.ktx)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.glide)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)

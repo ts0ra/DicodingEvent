@@ -6,7 +6,7 @@
     android:id="@+id/detail_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailActivity">
+    tools:context=".ui.activity.DetailActivity">
 
     <!-- Material Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
@@ -53,7 +53,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/img_detail_media_cover"
                 app:layout_constraintTop_toTopOf="@+id/img_detail_media_cover"
                 app:fabSize="normal"
-                app:srcCompat="@drawable/ic_fav" />
+                android:src="@drawable/ic_fav" />
 
             <TextView
                 android:id="@+id/tv_detail_name"
@@ -171,5 +171,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/tv_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/tv_info_detail"
+        android:layout_gravity="center"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
